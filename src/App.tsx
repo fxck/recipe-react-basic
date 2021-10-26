@@ -36,7 +36,7 @@ export class App extends React.Component<Props, State> {
     const apiUrl = url.replace(regex, subst);
 
     axios.post(
-      `https://api-20-1337-demo.devel.zerops.io/quotes`,
+      `${apiUrl}/quotes`,
       {
         quote: '„Zerops has beautiful user interface“'
       }
