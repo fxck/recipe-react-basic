@@ -1,26 +1,89 @@
 import React from 'react';
-import logo from './logo.svg';
+import axios from 'axios';
+import Checkbox from '@mui/material/Checkbox';
 import './App.css';
+import format from 'date-fns/format';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface Quote {
+  quote: string;
+  createdAt: string;
 }
 
-export default App;
+interface Props {
+
+}
+
+interface State {
+  quote: Quote | undefined;
+}
+
+export class App extends React.Component<Props, State> {
+
+
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      quote: undefined
+    };
+  }
+
+  componentDidMount() {
+
+    const regex = /^(https:\/\/)app-([^-.]+)([^\/]*).*$/gm;
+    const subst = `$1api-$2-1337$3`;
+    const url = window.location.href;
+    const apiUrl = url.replace(regex, subst);
+
+    axios.post(
+      `https://api-20-1337-demo.devel.zerops.io/quotes`,
+      {
+        quote: '„Zerops has beautiful user interface“'
+      }
+    )
+      .then((response) => {
+        this.setState({
+          quote: response.data
+        })
+      })
+      .catch((error) => {
+        // handle error
+        console.log(error);
+      });
+  }
+
+  render() {
+    return (
+      <div className="App">
+
+      <h1 className="__title">Welcome to <div className="__zerops">ZEROPS</div> recipe including <div className="__tech">Strapi</div>, <div className="__tech">MongoDB</div> and <div className="__tech">React</div> technologies</h1>
+
+      <h2 className="__quote-title">Quote loaded from <div className="__tech">MongoDB</div></h2>
+
+      <h3 className="__quote">{this.state.quote?.quote}<span className="__author"> - ZEROPS, {this.state.quote?.createdAt ? format(new Date(this.state.quote?.createdAt), 'MM/dd/yyyy') : ''}</span></h3>
+
+      <div className="__checklist">
+
+        <h3 className="__checklist-title"><strong>Your next steps?</strong></h3>
+
+        <div className="__checklist-item">
+          <Checkbox></Checkbox>
+          Fork repository
+        </div>
+
+        <div className="__checklist-item">
+          <Checkbox></Checkbox>
+          Open build and deploy settings and connect
+        </div>
+
+        <div className="__checklist-item">
+          <Checkbox></Checkbox>
+          Push a new commit
+        </div>
+
+      </div>
+
+    </div>
+    )
+  }
+}
