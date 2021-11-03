@@ -56,9 +56,9 @@ export class App extends React.Component<Props, State> {
     return (
       <div className="App">
 
-      <h1 className="__title">Welcome to <div className="__zerops">ZEROPS</div> recipe including <div className="__tech">Strapi</div>, <div className="__tech">MongoDB</div> and <div className="__tech">React</div> technologies</h1>
+      <h1 className="__title">Welcome to <div className="__zerops">ZEROPS</div> recipe including <div className="__tech">React</div>, connected to <div className="__tech">API</div> and <div className="__tech">database</div></h1>
 
-      <h2 className="__quote-title">Quote loaded from <div className="__tech">MongoDB</div></h2>
+      <h2 className="__quote-title">Quote loaded from <div className="__tech">database</div></h2>
 
       <h3 className="__quote">{this.state.quote?.quote}<span className="__author"> - ZEROPS, {this.state.quote?.createdAt ? format(new Date(this.state.quote?.createdAt), 'MM/dd/yyyy') : ''}</span></h3>
 
