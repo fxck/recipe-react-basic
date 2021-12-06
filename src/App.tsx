@@ -7,6 +7,7 @@ import format from 'date-fns/format';
 interface Quote {
   quote: string;
   createdAt: string;
+  created_at: string;
 }
 
 interface Props {
