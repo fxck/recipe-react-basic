@@ -56,33 +56,7 @@ export class App extends React.Component<Props, State> {
   render() {
     return (
       <div className="App">
-
-      <h1 className="__title">Welcome to <div className="__zerops">ZEROPS</div> recipe including <div className="__tech">React</div>, connected to <div className="__tech">API</div> and <div className="__tech">database</div></h1>
-
-      <h2 className="__quote-title">Quote loaded from <div className="__tech">database</div></h2>
-
-      <h3 className="__quote">{this.state.quote?.quote}<span className="__author"> - ZEROPS, {((this.state.quote?.createdAt || this.state.quote?.created_at) ? (this.state.quote?.createdAt ? format(new Date(this.state.quote?.createdAt), 'MM/dd/yyyy') : format(new Date(this.state.quote?.created_at), 'MM/dd/yyyy')): '')}</span></h3>
-
-      <div className="__checklist">
-
-        <h3 className="__checklist-title"><strong>Your next steps?</strong></h3>
-
-        <div className="__checklist-item">
-          <Checkbox></Checkbox>
-          Fork repository
-        </div>
-
-        <div className="__checklist-item">
-          <Checkbox></Checkbox>
-          Open build and deploy settings and connect
-        </div>
-
-        <div className="__checklist-item">
-          <Checkbox></Checkbox>
-          Push a new commit
-        </div>
-
-      </div>
+        hello
 
     </div>
     )
