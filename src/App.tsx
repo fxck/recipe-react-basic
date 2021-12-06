@@ -60,7 +60,7 @@ export class App extends React.Component<Props, State> {
 
       <h2 className="__quote-title">Quote loaded from <div className="__tech">database</div></h2>
 
-      <h3 className="__quote">{this.state.quote?.quote}<span className="__author"> - ZEROPS, {this.state.quote?.createdAt ? format(new Date(this.state.quote?.createdAt), 'MM/dd/yyyy') : ''}</span></h3>
+      <h3 className="__quote">{this.state.quote?.quote}<span className="__author"> - ZEROPS, {this.state.quote?.createdAt ? format(new Date(this.state.quote?.createdAt ? this.state.quote?.createdAt : this.state.quote?.created_at), 'MM/dd/yyyy') : ''}</span></h3>
 
       <div className="__checklist">
 
